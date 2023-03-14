@@ -19,7 +19,7 @@ import users from "../data/users.js";
  * - Gunakan promise untuk handle asynchronous.
  */
 const formatUser = (title) => {
-  const dataUsers = users.map((user) => {
+  const formatNameUser = users.map((user) => {
     return {
       ...user,
       name: `${title}. ${user.name}`,
@@ -29,7 +29,7 @@ const formatUser = (title) => {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        resolve(dataUsers);
+        resolve(formatNameUser);
       }, 3000);
     } catch (error) {
       reject(`Error: ${error}`);
