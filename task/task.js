@@ -4,8 +4,7 @@
  * Object memiliki property: name, age, major.
  * Note: Ubah var menggunakan JavaScript Modern.
  */
-
-let users = [
+const users = [
   {
     id: 1,
     name: "Aufa Billah",
@@ -24,11 +23,19 @@ let users = [
     age: 23,
     major: "Bisnis Digital",
   },
+  {
+    id: 4,
+    name: "Annisa",
+    age: 23,
+    major: "Sistem Informasi",
+  },
+  {
+    id: 5,
+    name: "Mas Agung",
+    age: 23,
+    major: "Teknik Mesin",
+  },
 ];
-
-const uniqueId = () => {
-  return Math.random().toLocaleString(36).substring(2, 6);
-};
 
 /**
  * TODO 2
@@ -37,13 +44,12 @@ const uniqueId = () => {
  * Note: Ubah function menggunakan arrow function.
  */
 const all = () => {
-  users.map((user) => {
-    console.log(`Id: ${user.id}`);
-    console.log(`Nama: ${user.name}`);
+  for (const user of users) {
+    console.log(`Name: ${user.name}`);
     console.log(`Age: ${user.age}`);
     console.log(`Major: ${user.major}`);
     console.log();
-  });
+  }
 };
 
 /**
@@ -53,9 +59,7 @@ const all = () => {
  * Note: Ubah function menggunakan arrow function.
  */
 const store = (newUser) => {
-  users = [...users, newUser];
-
-  all();
+  users.push(newUser);
 };
 
 /**
@@ -106,7 +110,7 @@ const main = () => {
 
   console.log(`# Add New User`);
   const newUsers = {
-    id: uniqueId(),
+    id: 6,
     name: "Sabiq",
     age: 20,
     major: "Teknik Informatika",
