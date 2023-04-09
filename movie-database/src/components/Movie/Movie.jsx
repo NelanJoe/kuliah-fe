@@ -12,4 +12,4 @@ const Movie = ({ title, year, poster }) => {
   );
 };
 
-export default Movie;
+export default Movie; 
