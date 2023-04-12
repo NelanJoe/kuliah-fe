@@ -24,7 +24,8 @@
     &__description {
       color: $color-gray;
       margin-bottom: 1.2rem;
-      text-align: justify;
+      word-break: break-all;
+      text-align: center;
     }
 
     &__btn {
