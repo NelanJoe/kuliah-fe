@@ -23,14 +23,17 @@
       flex-direction: column;
       margin-bottom: 1.2rem;
 
-      input[type="text"] {
+      label {
+        margin-bottom: .4rem;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        border: 2px solid $primary;
         border-radius: .4rem;
         width: 100%;
         padding: .3rem .4rem;
-
-        &:focus {
-          color: $primary;
-        }
       }
     }
 

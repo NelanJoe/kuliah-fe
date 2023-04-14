@@ -8,7 +8,7 @@ const Footer = () => {
           Covid ID
         </a>
         <p>
-          Develop With <span style={{ color: "red" }}>&hearts;</span> Nelan
+          Develop With <span style={{ color: "red" }}>&hearts;</span> By Nelan
         </p>
       </div>
       <div className="actions">
