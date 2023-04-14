@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "./Form.styles.scss";
+import Alert from "../Alert/Alert";
 
 const Form = ({ provinces, setProvinces }) => {
   const [province, setProvince] = useState("");
   const [status, setStatus] = useState("");
   const [jumlah, setJumlah] = useState(0);
+
+  const [isErrorProvince, setIsErrorProvince] = useState(false);
+  const [isErrorStatus, setIsErrorStatus] = useState(false);
+  const [isErrorJumlah, setIsErrorJumlah] = useState(false);
 
   const optionsStatus = [
     {
@@ -39,39 +44,54 @@ const Form = ({ provinces, setProvinces }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (status === "sembuh") {
-      setProvinces([
-        ...provinces,
-        {
-          kota: province,
-          kasus: jumlah,
-          sembuh: jumlah,
-          dirawat: 0,
-          meninggal: 0,
-        },
-      ]);
-    } else if (status === "meninggal") {
-      setProvinces([
-        ...provinces,
-        {
-          kota: province,
-          kasus: jumlah,
-          sembuh: 0,
-          dirawat: 0,
-          meninggal: jumlah,
-        },
-      ]);
+    if (province === "") {
+      setIsErrorProvince(true);
+    } else if (status === "") {
+      setIsErrorStatus(true);
+    } else if (jumlah === 0) {
+      setIsErrorJumlah(true);
     } else {
-      setProvinces([
-        ...provinces,
-        {
-          kota: province,
-          kasus: jumlah,
-          sembuh: 0,
-          dirawat: jumlah,
-          meninggal: 0,
-        },
-      ]);
+      switch (status) {
+        case "sembuh": {
+          setProvinces([
+            ...provinces,
+            {
+              kota: province,
+              kasus: jumlah,
+              sembuh: jumlah,
+              dirawat: 0,
+              meninggal: 0,
+            },
+          ]);
+        }
+        case "meninggal": {
+          setProvinces([
+            ...provinces,
+            {
+              kota: province,
+              kasus: jumlah,
+              sembuh: 0,
+              dirawat: 0,
+              meninggal: jumlah,
+            },
+          ]);
+        }
+        case "dirawat": {
+          setProvinces([
+            ...provinces,
+            {
+              kota: province,
+              kasus: jumlah,
+              sembuh: 0,
+              dirawat: jumlah,
+              meninggal: 0,
+            },
+          ]);
+        }
+        default: {
+          return;
+        }
+      }
     }
 
     e.target.reset();
@@ -102,6 +122,7 @@ const Form = ({ provinces, setProvinces }) => {
                 </option>
               ))}
             </select>
+            {isErrorProvince && <Alert>Data Provinsi tidak boleh kosong</Alert>}
           </div>
           <div className="form__group">
             <label htmlFor="status">Status</label>
@@ -118,6 +139,7 @@ const Form = ({ provinces, setProvinces }) => {
                 </option>
               ))}
             </select>
+            {isErrorStatus && <Alert>Status tidak boleh kosong</Alert>}
           </div>
           <div className="form__group">
             <label htmlFor="jumlah">Jumlah</label>
@@ -128,6 +150,7 @@ const Form = ({ provinces, setProvinces }) => {
               value={jumlah}
               onChange={handleJumlah}
             />
+            {isErrorJumlah && <Alert>Jumlah tidak boleh kosong</Alert>}
           </div>
           <button className="form__btn">Submit</button>
         </form>
