@@ -44,6 +44,8 @@ const Form = ({ provinces, setProvinces }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const findKota = provinces.find((prov) => prov.kota === province);
+
     if (province === "") {
       setIsErrorProvince(true);
     } else if (status === "") {
@@ -51,45 +53,13 @@ const Form = ({ provinces, setProvinces }) => {
     } else if (jumlah === 0) {
       setIsErrorJumlah(true);
     } else {
-      switch (status) {
-        case "sembuh": {
-          setProvinces([
-            ...provinces,
-            {
-              kota: province,
-              kasus: jumlah,
-              sembuh: jumlah,
-              dirawat: 0,
-              meninggal: 0,
-            },
-          ]);
-        }
-        case "meninggal": {
-          setProvinces([
-            ...provinces,
-            {
-              kota: province,
-              kasus: jumlah,
-              sembuh: 0,
-              dirawat: 0,
-              meninggal: jumlah,
-            },
-          ]);
-        }
-        case "dirawat": {
-          setProvinces([
-            ...provinces,
-            {
-              kota: province,
-              kasus: jumlah,
-              sembuh: 0,
-              dirawat: jumlah,
-              meninggal: 0,
-            },
-          ]);
-        }
-        default: {
-          return;
+      if (findKota) {
+        if (status === "sembuh") {
+          setProvinces([...provinces, { ...findKota, sembuh: jumlah }]);
+        } else if (status === "meninggal") {
+          setProvinces([...provinces, { ...findKota, meninggal: jumlah }]);
+        } else {
+          setProvinces([...provinces, { ...findKota, dirawat: jumlah }]);
         }
       }
     }
