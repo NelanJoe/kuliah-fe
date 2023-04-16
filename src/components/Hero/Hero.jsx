@@ -1,4 +1,6 @@
+import heroImg from "../../assets/img/hero.png";
 import "./Hero.styles.scss";
+
 const Hero = () => {
   return (
     <div className="hero">
@@ -14,7 +16,7 @@ const Hero = () => {
         <button className="hero__left__btn">Vaccine</button>
       </div>
       <div className="hero__right">
-        <img src="./hero.png" alt="covid-1" />
+        <img src={heroImg} alt="hero-img" />
       </div>
     </div>
   );

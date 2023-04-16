@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Form.styles.scss";
 import Alert from "../Alert/Alert";
+import formImage from "../../assets/img/form.png";
 
 const Form = ({ provinces, setProvinces }) => {
   const [province, setProvince] = useState("");
@@ -79,7 +80,7 @@ const Form = ({ provinces, setProvinces }) => {
   return (
     <section className="form">
       <div className="form__left">
-        <img src="form.png" alt="form-image" className="form__image" />
+        <img src={formImage} alt="form-image" className="form__image" />
       </div>
       <div className="form__right">
         <div>
