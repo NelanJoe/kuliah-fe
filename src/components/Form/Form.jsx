@@ -55,11 +55,20 @@ const Form = ({ provinces, setProvinces }) => {
     } else {
       if (findKota) {
         if (status === "sembuh") {
-          setProvinces([...provinces, { ...findKota, sembuh: jumlah }]);
+          setProvinces([
+            ...provinces,
+            { ...findKota, kasus: jumlah, sembuh: jumlah },
+          ]);
         } else if (status === "meninggal") {
-          setProvinces([...provinces, { ...findKota, meninggal: jumlah }]);
+          setProvinces([
+            ...provinces,
+            { ...findKota, kasus: jumlah, meninggal: jumlah },
+          ]);
         } else {
-          setProvinces([...provinces, { ...findKota, dirawat: jumlah }]);
+          setProvinces([
+            ...provinces,
+            { ...findKota, kasus: jumlah, dirawat: jumlah },
+          ]);
         }
       }
     }
