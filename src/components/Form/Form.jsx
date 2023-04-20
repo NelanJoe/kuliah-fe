@@ -44,22 +44,21 @@ const Form = ({ provinces, setProvinces }) => {
 
   const updatedDataCovid = () => {
     const findIndex = provinces.findIndex((prov) => prov.kota === province);
-    const findKota = provinces.find((prov) => prov.kota === province);
     if (status === "sembuh") {
       provinces[findIndex] = {
-        ...findKota,
+        ...provinces[findIndex],
         kasus: jumlah,
         sembuh: jumlah,
       };
     } else if (status === "meninggal") {
       provinces[findIndex] = {
-        ...findKota,
+        ...provinces[findIndex],
         kasus: jumlah,
         meninggal: jumlah,
       };
     } else {
       provinces[findIndex] = {
-        ...findKota,
+        ...provinces[findIndex],
         kasus: jumlah,
         dirawat: jumlah,
       };
