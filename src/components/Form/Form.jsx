@@ -42,10 +42,33 @@ const Form = ({ provinces, setProvinces }) => {
     setJumlah(value);
   };
 
+  const updatedDataCovid = () => {
+    const findIndex = provinces.findIndex((prov) => prov.kota === province);
+    const findKota = provinces.find((prov) => prov.kota === province);
+    if (status === "sembuh") {
+      provinces[findIndex] = {
+        ...findKota,
+        kasus: jumlah,
+        sembuh: jumlah,
+      };
+    } else if (status === "meninggal") {
+      provinces[findIndex] = {
+        ...findKota,
+        kasus: jumlah,
+        meninggal: jumlah,
+      };
+    } else {
+      provinces[findIndex] = {
+        ...findKota,
+        kasus: jumlah,
+        dirawat: jumlah,
+      };
+    }
+    setProvinces([...provinces]);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const findKota = provinces.find((prov) => prov.kota === province);
 
     if (province === "") {
       setIsErrorProvince(true);
@@ -54,24 +77,7 @@ const Form = ({ provinces, setProvinces }) => {
     } else if (jumlah === 0) {
       setIsErrorJumlah(true);
     } else {
-      if (findKota) {
-        if (status === "sembuh") {
-          setProvinces([
-            ...provinces,
-            { ...findKota, kasus: jumlah, sembuh: jumlah },
-          ]);
-        } else if (status === "meninggal") {
-          setProvinces([
-            ...provinces,
-            { ...findKota, kasus: jumlah, meninggal: jumlah },
-          ]);
-        } else {
-          setProvinces([
-            ...provinces,
-            { ...findKota, kasus: jumlah, dirawat: jumlah },
-          ]);
-        }
-      }
+      updatedDataCovid();
     }
 
     e.target.reset();
