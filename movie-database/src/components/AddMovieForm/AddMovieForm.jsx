@@ -66,6 +66,7 @@ const AddMovieForm = ({ movies, setMovies }) => {
         ...isError,
         title: false,
         date: true,
+        poster: true,
       });
       return false;
     } else if (poster === "") {
