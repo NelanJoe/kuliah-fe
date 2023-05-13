@@ -58,7 +58,7 @@ const AddMovieForm = ({ movies, setMovies }) => {
         id: nanoid(10),
         title: title,
         year: date,
-        poster: "https://source.unsplash.com/random/300x400",
+        poster: "https://picsum.photos/300/400",
         type: genre,
       };
 

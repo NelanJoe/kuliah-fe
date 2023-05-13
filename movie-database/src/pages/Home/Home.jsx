@@ -11,11 +11,9 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <Hero />
       <Movies movies={movies} />
       <AddMovieForm movies={movies} setMovies={setMovies} />
-      <Footer />
     </>
   );
 };
