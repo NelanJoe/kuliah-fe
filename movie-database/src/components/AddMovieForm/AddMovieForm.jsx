@@ -93,7 +93,7 @@ const AddMovieForm = ({ movies, setMovies }) => {
       id: nanoid(10),
       title: title,
       year: date,
-      poster: "https://picsum.photos/300/400",
+      poster: poster,
       type: genre,
     };
 
