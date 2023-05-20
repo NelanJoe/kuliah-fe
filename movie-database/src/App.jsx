@@ -8,6 +8,7 @@ import Layout from "./Layout";
 
 const App = () => {
   return (
+    // <Counter />
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
