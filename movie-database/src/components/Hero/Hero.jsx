@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import styles from "./Hero.module.css";
 import Button from "../ui/Button/Button";
+import StyledHero from "./StyledHero";
 const Hero = () => {
   const [movie, setMovie] = useState("");
   const url = `https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590`;
@@ -19,24 +19,19 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <section className={styles.hero}>
-        <div className={styles.hero__left}>
-          <h4 className={styles.hero__title}>{movie.Title}</h4>
-          <p className={styles.hero__genre}>{movie.Genre}</p>
-          <p className={styles.hero__description}>{movie.Plot}</p>
-          {/* <button className={styles.hero__button}>Watch Me</button> */}
+    <StyledHero>
+      <div className="hero">
+        <div className="hero__left">
+          <h4 className="hero__title">{movie.Title}</h4>
+          <p className="hero__genre">{movie.Genre}</p>
+          <p className="hero__description">{movie.Plot}</p>
           <Button>Watch Me</Button>
         </div>
-        <div className={styles.hero__right}>
-          <img
-            className={styles.hero__image}
-            src={movie.Poster}
-            alt="hero-images"
-          />
+        <div className="hero__right">
+          <img className="hero__image" src={movie.Poster} alt="hero-images" />
         </div>
-      </section>
-    </div>
+      </div>
+    </StyledHero>
   );
 };
 

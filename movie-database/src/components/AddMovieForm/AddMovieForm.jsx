@@ -165,7 +165,9 @@ const AddMovieForm = ({ movies, setMovies }) => {
               />
             </div>
             {/* <button className={styles.form__btn}>Add Movie</button> */}
-            <Button full>Add Movie</Button>
+            <Button full size="lg">
+              Add Movie
+            </Button>
           </form>
         </div>
       </div>
