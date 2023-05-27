@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
+import Button from "../ui/Button/Button";
 const Hero = () => {
   const [movie, setMovie] = useState("");
   const url = `https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590`;
@@ -24,7 +25,8 @@ const Hero = () => {
           <h4 className={styles.hero__title}>{movie.Title}</h4>
           <p className={styles.hero__genre}>{movie.Genre}</p>
           <p className={styles.hero__description}>{movie.Plot}</p>
-          <button className={styles.hero__button}>Watch Me</button>
+          {/* <button className={styles.hero__button}>Watch Me</button> */}
+          <Button>Watch Me</Button>
         </div>
         <div className={styles.hero__right}>
           <img

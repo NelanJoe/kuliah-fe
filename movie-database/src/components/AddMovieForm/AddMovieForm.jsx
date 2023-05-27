@@ -3,6 +3,7 @@ import styles from "./AddMovieForm.module.css";
 import { nanoid } from "nanoid";
 import Alert from "../Alert/Alert";
 import Select from "../Select/Select";
+import Button from "../ui/Button/Button";
 
 const AddMovieForm = ({ movies, setMovies }) => {
   // Refactor state form & error input value
@@ -163,7 +164,8 @@ const AddMovieForm = ({ movies, setMovies }) => {
                 onChange={handleChange}
               />
             </div>
-            <button className={styles.form__btn}>Add Movie</button>
+            {/* <button className={styles.form__btn}>Add Movie</button> */}
+            <Button full>Add Movie</Button>
           </form>
         </div>
       </div>
