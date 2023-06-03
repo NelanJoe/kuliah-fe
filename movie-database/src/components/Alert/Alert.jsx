@@ -1,8 +1,11 @@
+import styled from "styled-components";
+
 const Alert = ({ children }) => {
-  const stylesAlert = {
-    color: "red",
-  };
-  return <span style={stylesAlert}>{children}</span>;
+  return <StyleAlert>{children}</StyleAlert>;
 };
+
+const StyleAlert = styled.span`
+  color: red;
+`;
 
 export default Alert;
