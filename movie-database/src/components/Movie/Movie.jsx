@@ -1,14 +1,24 @@
 import "./StyledMovie";
 import StyledMovie from "./StyledMovie";
 
-const Movie = ({ title, year, poster }) => {
+const Movie = (props) => {
+  const { movie } = props;
   return (
     <StyledMovie>
       <div className="movie">
-        <img className="movie__image" src={poster} alt={title} />
+        <img
+          className="movie__image"
+          src={
+            movie.poster ||
+            `https://images.tmdb.org/t/p/w300/${movie.poster_path}`
+          }
+          alt={movie.title}
+        />
         <div className="movie__body">
-          <h4 className="movie__body--title">{title}</h4>
-          <p className="movie__body--date">{year}</p>
+          <h4 className="movie__body--title">{movie.title}</h4>
+          <p className="movie__body--date">
+            {movie.year || movie.release_date}
+          </p>
         </div>
       </div>
     </StyledMovie>

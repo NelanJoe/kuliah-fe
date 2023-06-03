@@ -8,7 +8,7 @@ const Movies = ({ movies }) => {
         <h2 className="title">Latest Movies</h2>
         <div className="movies">
           {movies.map((movie) => (
-            <Movie key={movie.id} {...movie} />
+            <Movie key={movie.id} movie={movie} />
           ))}
         </div>
       </div>

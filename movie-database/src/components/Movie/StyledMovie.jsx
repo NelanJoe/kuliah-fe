@@ -7,6 +7,7 @@ const StyledMovie = styled.div`
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     overflow: hidden;
     border-radius: 0.4rem;
+    width: 250px;
   }
 
   .movie__image {
