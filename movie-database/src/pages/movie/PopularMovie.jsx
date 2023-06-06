@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import Movies from "../../components/Movies/Movies";
+import Hero from "../../components/Hero/Hero";
 
 const PopularMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -21,8 +22,8 @@ const PopularMovie = () => {
 
   return (
     <>
-      <h1>Popular Movies</h1>
-      <Movies movies={movies} />
+      <Hero />
+      <Movies movies={movies} title={"Popular Movies"} />
     </>
   );
 };

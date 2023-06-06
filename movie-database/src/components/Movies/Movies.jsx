@@ -1,11 +1,11 @@
 import Movie from "../Movie/Movie";
 import StyledMovies from "./StyledMovies";
 
-const Movies = ({ movies }) => {
+const Movies = ({ movies, title }) => {
   return (
     <StyledMovies>
       <div className="container">
-        <h2 className="title">Latest Movies</h2>
+        <h2 className="title">{title || "Latest Movies"}</h2>
         <div className="movies">
           {movies.map((movie) => (
             <Movie key={movie.id} movie={movie} />

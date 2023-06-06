@@ -5,13 +5,13 @@ import StyledHero from "./StyledHero";
 import axios from "axios";
 
 const Hero = () => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState("");
 
   // Env api key
   const { VITE_API_KEY: API_KEY } = import.meta.env;
 
-  // const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-  // const idTrailer = movie && movie.videos.results[0].key;
+  const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
+  const idTrailer = movie && movie.videos.results[0].key;
 
   /**
    * Fetch Trending Movies
@@ -19,9 +19,9 @@ const Hero = () => {
    */
   const fetchTrendingMovie = async () => {
     const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
-    const { data } = await axios.get(URL);
+    const { data } = await axios(URL);
 
-    return data.results[Math.floor(Math.random() * 20)];
+    return data.results[0];
   };
 
   /**
@@ -47,9 +47,15 @@ const Hero = () => {
       <div className="hero">
         <div className="hero__left">
           <h4 className="hero__title">{movie.title}</h4>
-          <p className="hero__genre">{"Genre"}</p>
+          <p className="hero__genre">{genres}</p>
           <p className="hero__description">{movie.overview}</p>
-          <Button>Watch Me</Button>
+          {/* <Button>Watch Me</Button> */}
+          <a
+            href={`https://www.youtube.com/watch?v=${idTrailer}`}
+            target="_blank"
+          >
+            Watch Me
+          </a>
         </div>
         <div className="hero__right">
           <img
