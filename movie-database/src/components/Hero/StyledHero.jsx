@@ -49,8 +49,9 @@ const StyledHero = styled.section`
 
   .hero__image {
     max-width: 100%;
-    height: auto;
-    border-radius: 0.8rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 0.6rem;
   }
   /* Medium Screen */
   @media only screen and (min-width: 768px) {
@@ -69,6 +70,11 @@ const StyledHero = styled.section`
 
     .hero__title {
       font-size: 2.4rem;
+    }
+
+    .hero__image {
+      width: 600px;
+      height: 400px;
     }
   }
 `;

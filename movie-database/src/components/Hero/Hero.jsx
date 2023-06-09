@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import Button from "../ui/Button/Button";
 import StyledHero from "./StyledHero";
 import axios from "axios";
@@ -21,7 +20,7 @@ const Hero = () => {
     const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
     const { data } = await axios(URL);
 
-    return data.results[0];
+    return data.results[Math.floor(Math.random() * 20)];
   };
 
   /**
@@ -60,7 +59,7 @@ const Hero = () => {
         <div className="hero__right">
           <img
             className="hero__image"
-            src={`https://images.tmdb.org/t/p/w300/${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
             alt={movie.title}
           />
         </div>
