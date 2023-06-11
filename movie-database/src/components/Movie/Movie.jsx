@@ -1,5 +1,6 @@
 import "./StyledMovie";
 import StyledMovie from "./StyledMovie";
+import { Link } from "react-router-dom";
 
 const Movie = ({ movie }) => {
   return (
@@ -16,7 +17,9 @@ const Movie = ({ movie }) => {
           />
         </div>
         <div className="movie__body">
-          <h4 className="movie__body--title">{movie.title}</h4>
+          <Link to={`/movie/${movie.id}`}>
+            <h4 className="movie__body--title">{movie.title}</h4>
+          </Link>
           <p className="movie__body--date">
             {movie.year || movie.release_date}
           </p>

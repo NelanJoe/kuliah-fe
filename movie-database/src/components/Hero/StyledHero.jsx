@@ -5,7 +5,7 @@ const StyledHero = styled.section`
 
   .hero {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
   }
 
@@ -15,7 +15,8 @@ const StyledHero = styled.section`
 
   .hero__title {
     color: #4361ee;
-    margin-bottom: 0.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
     font-size: 1.6rem;
   }
 
@@ -69,6 +70,7 @@ const StyledHero = styled.section`
     }
 
     .hero__title {
+      margin-top: 0;
       font-size: 2.4rem;
     }
 

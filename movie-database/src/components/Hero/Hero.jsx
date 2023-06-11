@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../ui/Button/Button";
 import StyledHero from "./StyledHero";
 import axios from "axios";
+import ENDPOINTS from "../../utils/constats/endpoints";
 
 const Hero = () => {
   const [movie, setMovie] = useState("");
@@ -17,8 +18,7 @@ const Hero = () => {
    * @returns {trending movies}
    */
   const fetchTrendingMovie = async () => {
-    const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
-    const { data } = await axios(URL);
+    const { data } = await axios(ENDPOINTS.TRENDING);
 
     return data.results[Math.floor(Math.random() * 20)];
   };

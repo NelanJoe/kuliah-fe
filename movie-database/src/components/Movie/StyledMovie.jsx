@@ -31,9 +31,17 @@ const StyledMovie = styled.div`
     text-align: center;
   }
 
+  .movie__body a {
+    text-decoration: none;
+  }
+
   .movie__body--title {
-    color: #4731ee;
+    color: ${({ theme }) => theme.colors.primary};
     font-size: 1.4rem;
+  }
+
+  .movie__body--title:hover {
+    color: ${({ theme }) => theme.colors.danger};
   }
 
   .movie__body--date {

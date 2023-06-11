@@ -2,17 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
+import ENDPOINTS from "../../utils/constats/endpoints";
 
 const NowPlayingMovie = () => {
   const [movies, setMovies] = useState([]);
 
-  const { VITE_API_KEY: API_KEY } = import.meta.env;
-
   const getNowPlayingMovies = async () => {
-    const URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`;
-
-    const { data } = await axios(URL);
-
+    const { data } = await axios.get(ENDPOINTS.NOW_PLAYING);
     setMovies(data.results);
   };
 
