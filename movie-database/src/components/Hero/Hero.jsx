@@ -48,13 +48,13 @@ const Hero = () => {
           <h4 className="hero__title">{movie.title}</h4>
           <p className="hero__genre">{genres}</p>
           <p className="hero__description">{movie.overview}</p>
-          {/* <Button>Watch Me</Button> */}
-          <a
+          <Button
+            as="a"
             href={`https://www.youtube.com/watch?v=${idTrailer}`}
             target="_blank"
           >
             Watch Me
-          </a>
+          </Button>
         </div>
         <div className="hero__right">
           <img

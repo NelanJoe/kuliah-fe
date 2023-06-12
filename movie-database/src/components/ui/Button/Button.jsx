@@ -10,6 +10,8 @@ const Button = styled.button`
   background-color: ${({ variant, theme }) =>
     theme.colors[variant] || theme.colors.primary};
 
+  text-decoration: none;
+
   ${({ size, theme }) => theme.size[size] || theme.size.md}
 
   ${(props) =>

@@ -2,22 +2,25 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import StyledDetailMovie from "./StyledDetailMovie";
+import ENDPOINTS from "../../utils/constats/endpoints";
+import Button from "../ui/Button/Button";
 
 const DetailMovie = () => {
   // get id movie with params
   const { id } = useParams();
-  const { VITE_API_KEY: API_KEY } = import.meta.env;
 
   const [movie, setMovie] = useState("");
 
   const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
+
   const trailer =
-    movie && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`;
+    movie &&
+    `https://www.youtube.com/watch?v=${
+      movie.videos.results[0]?.key ?? "a9tq0aS5Zu8"
+    }`;
 
   const getDetailMovie = async () => {
-    const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
-
-    const { data } = await axios(URL);
+    const { data } = await axios(ENDPOINTS.DETAIL(id));
 
     setMovie(data);
   };
@@ -30,16 +33,16 @@ const DetailMovie = () => {
     <StyledDetailMovie>
       <div className="poster">
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path ?? ""}`}
           alt={movie.title}
         />
       </div>
       <div className="info">
         <h2>{movie.title}</h2>
         <h3>{genres}</h3>
-        <a href={trailer} target="_blank">
+        <Button as="a" href={trailer} target="_blank">
           Watch
-        </a>
+        </Button>
       </div>
     </StyledDetailMovie>
   );

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledMovie = styled.div`
   .movie {
-    width: 250px;
     margin-bottom: 1rem;
     border-radius: 0.4rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,

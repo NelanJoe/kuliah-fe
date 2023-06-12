@@ -26,6 +26,7 @@ const StyledMovies = styled.section`
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 2.4rem;
     }
   }
