@@ -4,6 +4,9 @@ import { nanoid } from "nanoid";
 import Alert from "../Alert/Alert";
 import Select from "../Select/Select";
 import Button from "../ui/Button/Button";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addMovie } from "../../features/movies/moviesSlice";
 
 const AddMovieForm = ({ movies, setMovies }) => {
   // Refactor state form & error input value
@@ -13,6 +16,12 @@ const AddMovieForm = ({ movies, setMovies }) => {
     poster: "",
     genre: "",
   });
+
+  // Navigation
+  const navigate = useNavigate();
+
+  // Dispatch
+  const dispatch = useDispatch();
 
   const [isError, setIsError] = useState({
     title: false,
@@ -90,7 +99,7 @@ const AddMovieForm = ({ movies, setMovies }) => {
   };
 
   // Add New Data Movie
-  const addMovie = () => {
+  const submit = () => {
     const newMovie = {
       id: nanoid(10),
       title: title,
@@ -99,14 +108,16 @@ const AddMovieForm = ({ movies, setMovies }) => {
       type: genre,
     };
 
-    setMovies([...movies, newMovie]);
+    // setMovies([...movies, newMovie]);
+    dispatch(addMovie(newMovie));
+    navigate("/");
   };
 
   // Submit form
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    validate() && addMovie();
+    validate() && submit();
   };
 
   return (
@@ -164,7 +175,6 @@ const AddMovieForm = ({ movies, setMovies }) => {
                 onChange={handleChange}
               />
             </div>
-            {/* <button className={styles.form__btn}>Add Movie</button> */}
             <Button full size="lg">
               Add Movie
             </Button>

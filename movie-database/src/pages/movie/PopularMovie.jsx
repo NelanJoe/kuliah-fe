@@ -1,17 +1,20 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react";
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
 import ENDPOINTS from "../../utils/constats/endpoints";
+import { useDispatch } from "react-redux";
+import { updateMovie } from "../../features/movies/moviesSlice";
 
 const PopularMovie = () => {
-  const [movies, setMovies] = useState([]);
+  const dispatch = useDispatch();
 
   const getPopularMovies = async () => {
-    const { data } = await axios.get(ENDPOINTS.POPULAR);
+    const { data } = await axios(ENDPOINTS.POPULAR);
 
-    setMovies(data.results);
+    console.log(data.results);
+
+    dispatch(updateMovie(data.results));
   };
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const PopularMovie = () => {
   return (
     <>
       <Hero />
-      <Movies movies={movies} title={"Popular Movies"} />
+      <Movies title={"Popular Movies"} />
     </>
   );
 };

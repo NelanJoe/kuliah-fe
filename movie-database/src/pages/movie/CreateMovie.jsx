@@ -1,7 +1,9 @@
+import AddMovieForm from "../../components/AddMovieForm/AddMovieForm";
+
 const CreateMovie = () => {
   return (
     <>
-      <h1>Create Movies</h1>
+      <AddMovieForm />
     </>
   );
 };

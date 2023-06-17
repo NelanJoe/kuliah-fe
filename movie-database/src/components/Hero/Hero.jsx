@@ -11,7 +11,7 @@ const Hero = () => {
   const { VITE_API_KEY: API_KEY } = import.meta.env;
 
   const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-  const idTrailer = movie && movie.videos.results[0].key;
+  const idTrailer = (movie && movie.videos.results[0]?.key) ?? "VQGCKyvzIM4";
 
   /**
    * Fetch Trending Movies
