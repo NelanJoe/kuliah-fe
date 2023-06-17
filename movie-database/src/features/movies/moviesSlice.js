@@ -11,9 +11,8 @@ const moviesSlice = createSlice({
     updateMovie: (state, action) => {
       if (state === data) {
         return action.payload;
-      } else {
-        return action.payload;
       }
+      return action.payload;
     },
   },
 });
