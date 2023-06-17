@@ -29,6 +29,10 @@ const StyledDetailMovie = styled.div`
     color: ${({ theme }) => theme.colors.danger};
   }
 
+  h4 {
+    margin-bottom: 1.2rem;
+  }
+
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: center;

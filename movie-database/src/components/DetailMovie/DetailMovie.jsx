@@ -40,6 +40,7 @@ const DetailMovie = () => {
       <div className="info">
         <h2>{movie.title}</h2>
         <h3>{genres}</h3>
+        <h4>{movie.release_date}</h4>
         <Button as="a" href={trailer} target="_blank">
           Watch
         </Button>
