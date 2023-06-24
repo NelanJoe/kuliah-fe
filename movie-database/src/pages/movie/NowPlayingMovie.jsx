@@ -4,7 +4,7 @@ import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
 import ENDPOINTS from "../../utils/constats/endpoints";
 import { useDispatch } from "react-redux";
-import { updateMovie } from "../../features/movies/moviesSlice";
+import { updateMovies } from "../../features/movies/moviesSlice";
 
 const NowPlayingMovie = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const NowPlayingMovie = () => {
     // setMovies(data.results);
 
     console.log(data.results);
-    dispatch(updateMovie(data.results));
+    dispatch(updateMovies(data.results));
   };
 
   useEffect(() => {

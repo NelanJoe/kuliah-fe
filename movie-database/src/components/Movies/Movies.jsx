@@ -3,7 +3,7 @@ import Movie from "../Movie/Movie";
 import StyledMovies from "./StyledMovies";
 
 const Movies = ({ title }) => {
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies.movies);
 
   return (
     <StyledMovies>

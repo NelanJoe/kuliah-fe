@@ -3,21 +3,21 @@ import data from "../../utils/constats/data";
 
 const moviesSlice = createSlice({
   name: "movies",
-  initialState: data,
+  initialState: {
+    movies: data,
+    moviesLocals: data,
+  },
   reducers: {
     addMovie: (state, action) => {
-      state.push(action.payload);
+      state.moviesLocals.push(action.payload);
     },
-    updateMovie: (state, action) => {
-      if (state === data) {
-        return action.payload;
-      }
-      return action.payload;
+    updateMovies: (state, action) => {
+      state.movies = action.payload;
     },
   },
 });
 
-export const { addMovie, updateMovie } = moviesSlice.actions;
+export const { addMovie, updateMovies } = moviesSlice.actions;
 const movieReducer = moviesSlice.reducer;
 
 export default movieReducer;

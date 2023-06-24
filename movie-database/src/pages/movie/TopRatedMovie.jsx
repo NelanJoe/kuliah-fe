@@ -4,7 +4,7 @@ import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
 import ENDPOINTS from "../../utils/constats/endpoints";
 import { useDispatch } from "react-redux";
-import { updateMovie } from "../../features/movies/moviesSlice";
+import { updateMovies } from "../../features/movies/moviesSlice";
 
 const TopRatedMovie = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const TopRatedMovie = () => {
   const getTopRatedMovies = async () => {
     const { data } = await axios(ENDPOINTS.TOP_RATED);
 
-    dispatch(updateMovie(data.results));
+    dispatch(updateMovies(data.results));
   };
 
   useEffect(() => {

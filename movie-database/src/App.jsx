@@ -8,17 +8,13 @@ import Layout from "./Layout";
 import { ThemeProvider } from "styled-components";
 import theme from "./utils/constats/theme";
 import DetailMovie from "./pages/movie/Detail";
-import { useState } from "react";
-import data from "./utils/constats/data";
 
 const App = () => {
-  const [movies, setMovies] = useState(data);
-
   return (
     <ThemeProvider theme={theme}>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home movies={movies} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/movie/create" element={<CreateMovie />} />
           <Route path="/movie/popular" element={<PopularMovie />} />
           <Route path="/movie/now-playing" element={<NowPlayingMovie />} />

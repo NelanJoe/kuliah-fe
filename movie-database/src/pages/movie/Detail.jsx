@@ -3,18 +3,20 @@ import DetailMovie from "../../components/DetailMovie/DetailMovie";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Movies from "../../components/Movies/Movies";
+import { useDispatch } from "react-redux";
+import { updateMovies } from "../../features/movies/moviesSlice";
 
 const Detail = () => {
   const { id } = useParams();
-  const { VITE_API_KEY: API_KEY } = import.meta.env;
 
-  const [movies, setMovies] = useState([]);
+  const dispatch = useDispatch();
 
   const getRecomendationsMovies = async () => {
     const URL = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`;
 
     const { data } = await axios(URL);
-    setMovies(data.results);
+
+    dispatch(updateMovies(data.results));
   };
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const Detail = () => {
   return (
     <>
       <DetailMovie />
-      <Movies movies={movies} title={"Recommendations Movies"} />
+      <Movies title={"Recommendations Movies"} />
     </>
   );
 };
