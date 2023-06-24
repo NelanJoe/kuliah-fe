@@ -11,9 +11,7 @@ const NowPlayingMovie = () => {
 
   const getNowPlayingMovies = async () => {
     const { data } = await axios(ENDPOINTS.NOW_PLAYING);
-    // setMovies(data.results);
 
-    console.log(data.results);
     dispatch(updateMovies(data.results));
   };
 
